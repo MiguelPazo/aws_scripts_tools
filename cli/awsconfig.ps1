@@ -17,17 +17,21 @@
     (Optional) Duration of the session in seconds. Default is 28800 (8 hours).
 
 .EXAMPLE
-    .\aws-sts.ps1
+    .\awsconfig.ps1
     Requests temporary credentials without MFA or profile.
 
 .EXAMPLE
-    .\aws-sts.ps1 -serialNumber arn:aws:iam::123456789012:mfa/user -profile dev
+    .\awsconfig.ps1 -serialNumber arn:aws:iam::123456789012:mfa/user -profile dev
     Requests credentials using MFA and a named AWS CLI profile.
 
 .NOTES
-    Requires AWS CLI installed and configured.
-    Must be run with execution policy set appropriately:
+    - Requires AWS CLI installed and configured.
+
+    - Must be run with execution policy set appropriately:
         Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+    - Maybe require to unblock script to execute:
+        Unblock-File -Path .\awsconfig.ps1
 #>
 
 param(
